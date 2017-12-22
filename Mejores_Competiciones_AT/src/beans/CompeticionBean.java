@@ -6,6 +6,9 @@
 
 package beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author user
@@ -15,10 +18,18 @@ public class CompeticionBean {
     int id_competicion;
     String nombreCompeticion, nombreRegion;
     int contadorApuestas;
+    List<String> emails;
+    
+    List<UsuarioBean> usuarios;
 
     public CompeticionBean() {
         
         contadorApuestas=0;
+        
+        emails= new ArrayList<String>();
+        
+        usuarios=new ArrayList<UsuarioBean>();
+        
     }
 
     public int getId_competicion() {
@@ -53,6 +64,22 @@ public class CompeticionBean {
 
     public void setNombreRegion(String nombreRegion) {
         this.nombreRegion = nombreRegion;
+    }
+
+    public List<String> getEmails() {
+        return emails;
+    }
+
+    public void setEmails(List<String> emails) {
+        this.emails = emails;
+    }
+
+    public List<UsuarioBean> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<UsuarioBean> usuarios) {
+        this.usuarios = usuarios;
     }
     
 

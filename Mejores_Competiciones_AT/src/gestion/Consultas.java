@@ -83,7 +83,7 @@ public class Consultas {
         cont4 = 0;
         cont5 = 0;
 
-        sql = "select id,events from db_apuestatotal_prod.user_bet where created_at>='2017-08-15' order by id" + " limit 200000";
+        sql = "select idUser,id,events from db_apuestatotal_prod.user_bet where created_at>='2017-08-15' order by id" + " limit 1000";
 
         PreparedStatement stm = objCon.getCon().prepareStatement(sql);
         ResultSet rs = stm.executeQuery();
@@ -140,6 +140,9 @@ public class Consultas {
                     compet.setId_competicion(id_comp);
 
                     int cont;
+                    
+                    
+                    
                     if (competiciones[id_comp] == null) {
 
                         cont = compet.getContadorApuestas();
@@ -173,6 +176,10 @@ public class Consultas {
         objCon.desconectar();
 
     }
+    
+    
+    
+    
 
     public void recorrerCompeticiones() {
 
@@ -191,5 +198,35 @@ public class Consultas {
         }
 
     }
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+    public CompeticionBean[] getCompeticiones() {
+        return competiciones;
+    }
+
+    public void setCompeticiones(CompeticionBean[] competiciones) {
+        this.competiciones = competiciones;
+    }
+
+    public int getContCompeticiones() {
+        return contCompeticiones;
+    }
+
+    public void setContCompeticiones(int contCompeticiones) {
+        this.contCompeticiones = contCompeticiones;
+    }
+    
+    
+    
+    
+    
+    
 
 }
